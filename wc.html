@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>⚠</title>
+	<title>⚠️</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<style>
 		@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
+        html {
+          box-sizing: border-box;
+        }
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+      
 		.ban-red {
 		  color: #EF5350;
 		  opacity: 0;
@@ -36,69 +43,132 @@
 		  color: #4CAF50;
 		}
 
-		html, body {
+		html {
 		  border: 0;
 		  margin: 0;
 		  width: 100%;
 		  height: 100%;
 		}
+      
+        body {
+          padding: 1em;
+          margin: 0;
+          width: 100%;
+          height: 100%;
+        }
+      
+        .icon {
+          margin-top: 75px;
+        }
 
 		.content {
 		  width: 100%;
 		  height: 100%;
 		  display: flex;
 		  flex-direction: column;
-		  justify-content: center;
+		  /* justify-content: center; */
 		  align-items: center;
 		}
 
 		.prompt {
-		  margin-top: 2em;
+		  margin-top: 1em;
 		  text-align: center;
 		  font-family: "Roboto", sans-serif;
-		  font-weight: 300;
-		  font-size: 1.1em;
-		  max-width: 18em;
+		  font-weight: 400;
+		  font-size: 1em;
+		  max-width: 25em;
 		}
 
+        #prompt-title {
+          font-weight: 600;
+          font-size: 1.3em;
+          margin-bottom: 0.5em;
+        }
+      
+        #prompt-content {
+          color: #777;
+        }
+      
 		#prompt-link {
 		  margin-top: 1em;
+          text-align: center;
+          width: 100%;
 		}
+      
+        #prompt-link summary {
+          display: block;
+          text-align: center;
+          padding: .75em;
+          font-size: 1.1em;
+          background: #1AAC1A;
+          color: #fff;
+          border-radius: 5px;
+          margin-bottom: 1em;
+        }
+      
+        #prompt-link summary::-webkit-details-marker{ display: none; }
 
 		a, a:link, a:visited{
-		  border: 1px #1E88E5 solid;
-		  display: inline-block;
-		  padding: 0.5em 1em;
-		  border-radius: 5px;
-		  background-color: #2196F3;
+		  /* border: 1px #1E88E5 solid; */
+		  /* display: inline-block; */
+		  /* padding: 0.5em 1em; */
+		  /* border-radius: 5px; */
+		  /* background-color: #2196F3; */
 		  text-decoration: none;
-		  color: #ffffff;
+		  color: #607fa6;
 		}
+      
+      #cnfooter {
+        flex-grow: 1;
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        
+      }
+      #cnfooter::before {
+        content: '';
+        flex-grow: 1;
+      }
 	</style>
 	<div class="content">
 	  <div class="icon">
-	    <span class="fa-stack fa-5x">
+        <img src="data:image/png;base64,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" alt="" style="width: 100px">
+	    <!-- <span class="fa-stack fa-5x">
 	      <i class="fa fa-weixin fa-stack-1x wechat-green"></i>
 	      <i class="fa fa-ban fa-stack-2x ban-red"></i>
-	    </span>
+	    </span> -->
 	  </div>
 	  <div class="prompt">
+        <div id="prompt-title">Unsecure Browser</div>
 	    <div id="prompt-content">
 	      Your browser is out of date, please use a modern browser instead.
 	    </div>
-	    <div id="prompt-link">
-	      <a id="link-chrome" href="https://chrome.com">Chrome</a>
-	      <a id="link-firefox" href="https://firefox.com">Firefox</a>
-	    </div>
+	    
 	  </div>
+      <details id="prompt-link">
+        <summary id="prompt-summary">Upgrade your browser</summary>
+        <a id="link-chrome" href="https://chrome.com">Chrome</a> | 
+        <a id="link-firefox" href="https://firefox.com">Firefox</a>
+      </details>
+      <div id="cnfooter">
+        <span>
+          <a href="https://kf.qq.com/faq/170118UnqeUZ170118mUb6fu.html">客服指引</a> | <a href="https://weixin.qq.com/cgi-bin/readtemplate?t=weixin_external_links_content_management_specification">查看规则</a>
+        </span>
+      </div>
 	</div>
+    
 	<script>
 		if (navigator.language.match(/ja/)) {
 		  document.getElementById("prompt-content").innerHTML = "お使いのブラウザは古いバージョンです。<wbr>新しいバージョンを更新ください。";
+          document.getElementById("prompt-title").innerHTML = "不安全なブラウザー";
+          document.getElementById("prompt-summary").innerHTML = "ブラウザーを切り替える";
 		}
 
 		if (navigator.language.match(/zh/)) {
-		  document.getElementById("prompt-content").innerHTML = "您所使用的浏览器版本过旧，<wbr>请选用现代浏览器。";
+          document.getElementById("prompt-title").innerHTML = "已停止访问该网页";
+          document.getElementById("prompt-summary").innerHTML = "使用其他浏览器访问";
+		  document.getElementById("prompt-content").innerHTML = "您所使用的浏览器含有不安全因素，已被多人举报。为维护安全上网环境，已停止访问。推荐使用其他浏览器访问，保护手机安全。";
+          document.getElementById("cnfooter").style.setProperty('display', 'flex');
 		}
 
 		//iPhone Version:
